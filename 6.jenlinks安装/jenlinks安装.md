@@ -4,7 +4,7 @@
 为了之后直接在 jenkins master的pod里构建jenkins任务，我们需要maven环境和sonarqube-cli命令行工具 
 所以我们直接把maven和sonarqube-cli整合在jenkins的镜像里，之后部署Jenkins-deployment.yaml里直接使用该镜像来部署Jenkins到K8s
 
-⭐可以直接在Dockerfile文件夹里用下载好的直接构建
+⭐可以直接在Dockerfile文件夹里用下载好的直接构建（sonar-scanner太大上传不上来，请用下面命令自行下载）  
 
 下面是流程:
 ### 1.首先下载要添加到基础镜像中的组件

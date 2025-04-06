@@ -9,7 +9,7 @@
 
 **把git生成的pub公钥添加到gitlab**
 
-![alt text](\图片\image-1.png)
+![alt text](图片/image-1.png)
 
 
 **2.在git bash 中将git于gitlab上的仓库关联** 
@@ -17,7 +17,7 @@
 
 origin为gitlab上需要关联仓库的名字 可自行修改（如我的为K8S）
 后面内容复制与gitlab的SSH克隆（HTTP克隆也可以）
-![alt text](\图片\image.png)
+![alt text](图片/image.png)
 
 **3.修改本地仓库分支为main与gitlab仓库上一致**
 `git branch -m master main`

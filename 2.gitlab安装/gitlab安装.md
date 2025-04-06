@@ -43,23 +43,23 @@ Password存储在`/etc/gitlab/initial_root_password`
 # WebUI设置：
  ## 设置语言为中文（全局）
  Settings > Preferences > Localization > Default language > 选择简体中文 > Save changes
-![alt text](\图片\image-3.png)
+![alt text](图片/image-3.png)
 
 ## 设置当前用户语言为中文
  右上角用户头像 > Preferences > Localization > Language > 选择简体中文 > Save changes
- ![alt text](\图片\image-4.png)
+ ![alt text](图片/image-4.png)
 
 ## 登录后修改默认密码 
 右上角头像 > Perferences > 左侧栏Password
 
 ## 修改系统配置：点击左上角三横 > Admin
  Settings > General > Account and limit > 取消 Gravatar enabled > Save changes
- ![alt text](\图片\image.png)
+ ![alt text](图片/image.png)
 
  ## 关闭用户注册功能
  Settings > General > Sign-up restrictions > 取消 Sign-up enabled > Save changes
- ![alt text](\图片\image-1.png)
+ ![alt text](图片/image-1.png)
 
  ## 开启 webhook 外部访问
  Settings > Network > Outbound requests > Allow requests to the local network from web hooks and services 勾选
- ![alt text](\图片\image-2.png)
+ ![alt text](图片/image-2.png)

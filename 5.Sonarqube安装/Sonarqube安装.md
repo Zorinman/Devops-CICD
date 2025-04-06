@@ -19,4 +19,4 @@
 ## 安装中文插件
 
 
-![alt text](\图片\image.png)
+![alt text](图片/image.png)

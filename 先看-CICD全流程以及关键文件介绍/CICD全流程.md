@@ -1,6 +1,6 @@
 **本次CICD流程图如下：**
 
-![alt text](\图片\image.png)
+![alt text](图片/image.png)
 
 ### k8s集群内:
 `master：192.168.219.142`
