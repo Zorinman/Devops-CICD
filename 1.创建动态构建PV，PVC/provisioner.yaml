@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-client-provisioner
+  namespace: kube-system
+  labels:
+    app: nfs-client-provisioner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nfs-client-provisioner
+  template:
+    metadata:
+      labels:
+        app: nfs-client-provisioner
+    spec:
+      serviceAccountName: nfs-client-provisioner
+      containers:
+        - name: nfs-client-provisioner
+          image: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner:v4.0.0
+          volumeMounts:
+            - name: nfs-client-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: fuseim.pri/ifs   #环境变量：制备器的名字
+            - name: NFS_SERVER
+              value: 192.168.219.142   #环境变量：NFS服务器地址
+            - name: NFS_PATH
+              value: /nfs/data/wolfcode-devops      #环境变量：NFS共享目录地址
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server: 192.168.219.142     #NFS服务器地址
+            path: /nfs/data/wolfcode-devops          #NFS共享目录地址
