@@ -109,15 +109,15 @@ pipeline{
  ```
 
 
-**1.创建构建任务发起构建**
+### **1.创建构建任务发起构建**
 
-**2.选择构建任务的容器或者节点**:
+###  **2.选择构建任务的容器或者节点**:
 Jenkins根据项目里的jenkinsfile文件内的`agent  any`自动选择在jenkins master节点（就是部署的Jenkins的pod容器内）构建流水线任务
 
-**3.拉取远程仓库代码**:
+### **3.拉取远程仓库代码**:
 构建任务通过jenkins上创建gitlab-user-pass凭证访问gitlab并的从gitlab仓库拉取项目
 
-**4.下载maven依赖并通过maven命令编译测试项目代码**：
+### **4.下载maven依赖并通过maven命令编译测试项目代码**：
 jenkins master容器maven根据gitlab项目中的`pom.xml`中的内容从中央仓库下载需要的依赖和插件
 
 `jenkins-configmap.yaml`中的`settings.xml`挂载到jenkins容器内的Maven 的 `/usr/local/apache-maven-3.9.9/conf/settings.xml`
@@ -126,16 +126,16 @@ jenkins master容器maven根据gitlab项目中的`pom.xml`中的内容从中央�
 
 下载依赖后执行`mvn clean test`对拉取到的项目中的源码和test源码进行编译测试
 
-**5.Sonarqube代码审查**：
+### **5.Sonarqube代码审查**：
 利用jenkins上创建的sonarqube-token凭证在访问Sonarqube，容器中maven通过`setting.xml`集成了sonaerqube，在容器内`通过maven sonaer命令`凭借sonarqube-token凭证访问sonaerqube
 让Sonarqube对项目代码进行代码审查，审查完毕通过后Sonarqube触发webhook钩子函数通知jenkins代码审查通过，开始进行下一步构建
 
-**6.根据项目的dockerfile文件将项目构建成镜像并将推送到harbor仓库**：
+### **6.根据项目的dockerfile文件将项目构建成镜像并将推送到harbor仓库**：
 jenkins master容器通过jenkins上的harbor-user-pass凭证访问harbor仓库，容器内使用docker命令根据项目的dockerfile文件构建镜像，并将镜像推送到harbor仓库，每次流水线运行都会执行（无论分支是什么）
 
 将已经构建的镜像再打个标签`latest`，仅当分支为 main 时执行，表示这是当前稳定版本
 
-**7.部署项目中的yaml资源到k8s集群**:
+### **7.部署项目中的yaml资源到k8s集群**:
 
 在jenkins容器中,我们之前将K8S集群的kubeconfig配置文件内容配置到了jenkins上的configFileProvider插件上，通过jenkins上我们手动配置的Kubeconfig配置文件生成的fileID将
 kubeconfig配置文件内容生成到容器内临时指定位置，再把文件复制到容器内的`/.kube/config`(重命名为config)，
@@ -143,6 +143,6 @@ kubeconfig配置文件内容生成到容器内临时指定位置，再把文件�
 
 **yaml中使用的镜像就是从远程仓库拉取我们第6步推送上去的项目镜像，作为pod的镜像部署在K8S集群**
 
-**8.部署成功，访问项目的API接口**
+### **8.部署成功，访问项目的API接口**
 根据项目中的yaml文件，项目部署在ks-k8s-cicd-demo命名空间，我们查看它的svc直接访问其提供的API接口即可
 
