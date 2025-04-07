@@ -1,13 +1,13 @@
 | 步骤 | 描述                                   |
 |------|----------------------------------------|
-| 1    | [动态构建 PV 和 PVC](1.创建动态构建PV，PVC/动态构建Pv,pvc.md)                     |
-| 2    | [安装 GitLab](2.gitlab安装/gitlab安装.md)                            |
-| 3    |➡️ [将 Git 关联到 GitLab 并推送项目](3.使用git推送项目到gitlab/使用git推送项目到gitlab.md)        |
-| 4    | [安装 Harbor](4.Harbor安装/Harbor安装.md)                           |
-| 5    | [安装 SonarQube](5.Sonarqube安装/Sonarqube安装.md)                         |
-| 6    | [安装 Jenkins](6.jenlinks安装/jenlinks安装.md)                           |
-| 7    | [连接各个中间件形成 DevOps](7.连接各个中间件形成devops/连接中间件形成Devops.md)         |
-| 8    | [创建流水线任务](8.创建pipe流水线/创建流水线任务.md)    
+| 1    | [动态构建 PV 和 PVC](Zorinman/Devops-CICD/1.创建动态构建PV，PVC/动态构建Pv,pvc.md)                     |
+| 2    | [安装 GitLab](Zorinman/Devops-CICD/2.gitlab安装/gitlab安装.md)                            |
+| 3    |➡️ [将 Git 关联到 GitLab 并推送项目](Zorinman/Devops-CICD/3.使用git推送项目到gitlab/使用git推送项目到gitlab.md)        |
+| 4    | [安装 Harbor](Zorinman/Devops-CICD/4.Harbor安装/Harbor安装.md)                           |
+| 5    | [安装 SonarQube](Zorinman/Devops-CICD/5.Sonarqube安装/Sonarqube安装.md)                         |
+| 6    | [安装 Jenkins](Zorinman/Devops-CICD/6.jenlinks安装/jenlinks安装.md)                           |
+| 7    | [连接各个中间件形成 DevOps](Zorinman/Devops-CICD/7.连接各个中间件形成devops/连接中间件形成Devops.md)         |
+| 8    | [创建流水线任务](Zorinman/Devops-CICD/8.创建pipe流水线/创建流水线任务.md)   
 
 [git的安装和使用](https://github.com/Zorinman/git-github/tree/main/git%E4%B8%8Egithub)
 
