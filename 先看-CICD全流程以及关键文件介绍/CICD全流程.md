@@ -34,6 +34,12 @@ password:`!zorin987`
 ## ⭐全流程:
 **jenkins master**:就是上面部署安装的Jenkins pod，Web地址:`http://192.168.219.142:32348/`
 
+**动态静态构建概念**：  
+1.静态构建：在Jenkins上手动创建Jenkins slave节点，并提前创建好节点的容器环境，在创建Pipeline流水线任务时指定使用该节点，这样流水线任务就会在提创建好的指定节点中完成构建。  
+
+2.动态构建:在Jenkins或者在Pipeline流水线脚本中提前提供好slave节点的yaml资源内容,yaml中包含了构建slave节点时需要拉取的一系列环境依赖，这样在创建流水线任务时工作节点就会根据yaml内容自动创建并将流水线任务安排至该工作节点上进行构建。  
+
+
 **动态slave创建**：jenkins构建任务可以从通过动态slave创建，就是jenkins的从节点（这里节点指的是容器），这样可以方便管理，更好的资源分配，动态slave需要根据定义的pod的yaml模板，模板我们可以在Jenkins的WebUI上定义，也可以在Jenkinsfile里定义 `agent kubernetes`就表示Jenkins会在K8S集群上动态创建pod来作为流水线任务的构建区。 这里我们需要`Jenkins Inbound Agent` 镜像，它是一种用于连接 Jenkins 控制器(jenkins master)的代理,使用JNLP 协议来解决agent的网络连接,我们一般将容器起名为jnlp，除此之外 还要在这个镜像基础上集成一系列的配置，如sonarqube cli，docker，maven环境等等.
 ```
 pipeline{
